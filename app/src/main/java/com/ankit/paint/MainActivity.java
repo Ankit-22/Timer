@@ -131,17 +131,25 @@ public class MainActivity extends AppCompatActivity
                 }
                 else if((x-720/2)*(x-720/2)+(y-1020/2)*(y-1020/2)<=62500)
                 {
-                    reset();
-                    t.cancel();
-                    flag = 0;
-                    paint.setColor(Color.RED);
-                    canvas.drawCircle(720 / 2, 1020 / 2, 250, paint);
-                    paint.setColor(Color.parseColor("#ffffff"));
-                    canvas.drawCircle(720 / 2, 1020 / 2, 200, paint);
-                    paint.setColor(Color.BLACK);
-                    paint.setTextSize(50);
-                    canvas.drawText("0 : 00 : 00 : 0", 720 / 4 + 50, 1020 / 2, paint);
-                    mHandler.obtainMessage(1).sendToTarget();
+                    if(flag==0)
+                    {
+                        reset();
+                        t.cancel();
+                        flag = 0;
+                        paint.setColor(Color.RED);
+                        canvas.drawCircle(720 / 2, 1020 / 2, 250, paint);
+                        paint.setColor(Color.parseColor("#ffffff"));
+                        canvas.drawCircle(720 / 2, 1020 / 2, 200, paint);
+                        paint.setColor(Color.BLACK);
+                        paint.setTextSize(50);
+                        canvas.drawText(String.format("%d : %02d : %02d : %d", hr, min, sec, mi), 720 / 4 + 50, 1020 / 2, paint);
+                        mHandler.obtainMessage(1).sendToTarget();
+
+                    }
+                    else if(flag==1) {
+                        t.cancel();
+                        flag = 0;
+                    }
                 }
 
                 /*if(x>=f&&x<=f+200&&y>=g&&y<=g+200)
