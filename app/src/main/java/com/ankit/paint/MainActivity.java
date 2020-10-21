@@ -22,22 +22,22 @@ import android.os.Handler;
 
 public class MainActivity extends AppCompatActivity
 {
-    int hr=0,min=0,sec=0,mi=0,flag=0;
+    int hr = 0, min = 0, sec = 0, mi = 0, flag = 0;
     public Timer t = new Timer();
     private void update()
     {
         mi++;
-        if(mi>=10)
+        if(mi >= 10)
         {
             mi = 0;
             sec++;
         }
-        if(sec>=60)
+        if(sec >= 60)
         {
             sec=0;
             min++;
         }
-        if(min>=60)
+        if(min >= 60)
         {
             min=0;
             hr++;
@@ -45,10 +45,10 @@ public class MainActivity extends AppCompatActivity
     }
     private void reset()
     {
-        hr=0;
-        min=0;
-        sec=0;
-        mi=0;
+        hr = 0;
+        min = 0;
+        sec = 0;
+        mi = 0;
     }
     @Override
     protected void onCreate(Bundle savedInstanceState)
